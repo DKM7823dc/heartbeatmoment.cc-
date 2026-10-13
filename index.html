@@ -111,11 +111,13 @@
         /* ---------- 頁首 ---------- */
         .hero { padding: 72px 0 56px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
         .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+            display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 16px;
             background: rgba(255, 46, 210, 0.1); border: 1px solid rgba(255, 46, 210, 0.35);
-            font-size: 13.5px; color: var(--pink-light); margin-bottom: 24px; font-weight: 500;
+            text-align: left; margin-bottom: 24px;
         }
-        .hero-badge i { animation: heartbeat 1.4s ease-in-out infinite; }
+        .hero-badge > i { font-size: 24px; color: var(--pink-light); animation: heartbeat 1.4s ease-in-out infinite; }
+        .hb-line1 { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.3; }
+        .hb-line2 { font-size: 12.5px; color: var(--pink-light); line-height: 1.4; }
         @keyframes heartbeat { 0%,100%{transform:scale(1);} 25%{transform:scale(1.18);} 40%{transform:scale(1);} 60%{transform:scale(1.14);} 75%{transform:scale(1);} }
         .hero h1 { font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(38px, 5.4vw, 62px); line-height: 1.18; letter-spacing: 1px; margin-bottom: 22px; }
         .grad-text { background: linear-gradient(100deg, var(--pink-light), var(--purple-light), var(--teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -130,12 +132,12 @@
         /* ---------- 手機版：5 位會員大頭貼（左右循環滾動） ---------- */
         .hero-carousel { display: none; overflow: hidden; }
         .stickers { display: flex; width: max-content; animation: sticker-scroll 18s linear infinite; }
-        .sticker { flex: 0 0 60px; margin-right: 8px; cursor: pointer; }
-        .st-photo { position: relative; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,46,210,0.25); background: var(--bg-1); }
+        .sticker { flex: 0 0 72px; margin-right: 10px; cursor: pointer; }
+        .st-photo { position: relative; aspect-ratio: 3/4; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,46,210,0.3); background: var(--bg-1); box-shadow: 0 6px 16px rgba(0,0,0,0.35), 0 0 14px rgba(255,46,210,0.18); }
         .st-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .st-check { position: absolute; right: 4px; bottom: 4px; width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), #00c4d8); color: #04202a; font-size: 9px; display: grid; place-items: center; }
-        .st-name { text-align: center; font-size: 12px; font-weight: 700; margin-top: 5px; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .st-name span { font-size: 10.5px; color: var(--text-faint); font-weight: 400; margin-left: 2px; }
+        .st-check { position: absolute; right: 5px; bottom: 5px; width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), #00c4d8); color: #04202a; font-size: 10px; display: grid; place-items: center; }
+        .st-name { text-align: center; font-size: 13px; font-weight: 700; margin-top: 6px; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .st-name span { font-size: 11px; color: var(--text-faint); font-weight: 400; margin-left: 2px; }
         @keyframes sticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
         /* 右側照片拼貼 */
@@ -349,14 +351,17 @@
             .hero-copy { text-align: center; }
             .hero h1 { font-size: 28px; line-height: 1.2; letter-spacing: 0; }
             .hero p.lead { font-size: 14.5px; line-height: 1.6; margin-bottom: 16px; }
-            .hero-badge { font-size: 12px; padding: 6px 12px; margin-bottom: 14px; }
+            .hero-badge { padding: 8px 14px; margin-bottom: 14px; border-radius: 14px; gap: 8px; }
+            .hero-badge > i { font-size: 20px; }
+            .hb-line1 { font-size: 13.5px; }
+            .hb-line2 { font-size: 11.5px; }
             .hero-trust { gap: 12px; justify-content: center; }
             .trust-item { font-size: 12.5px; }
             .hero-visual { display: none; }
 
             .hero-carousel { margin-top: 20px; }
-            .st-name { font-size: 11.5px; }
-            .st-name span { font-size: 10px; }
+            .st-name { font-size: 12.5px; }
+            .st-name span { font-size: 11px; }
 
             .stats { padding: 24px 0 34px; }
             .stat { padding: 22px 8px; }
@@ -441,7 +446,13 @@
         <!-- 頁首 -->
         <section class="wrap hero">
             <div class="hero-copy">
-                <div class="hero-badge"><i class="fa-solid fa-heart"></i> 2026 全新升級 · 免註冊直接聯繫</div>
+                <div class="hero-badge">
+                    <i class="fa-solid fa-heart"></i>
+                    <div class="hb-text">
+                        <div class="hb-line1">2026認真實名婚戀第一品牌</div>
+                        <div class="hb-line2">已協助18,400+對嘉賓脫單</div>
+                    </div>
+                </div>
                 <h1>在對的時間，<br>遇見<span class="grad-text">對的人</span></h1>
                 <p class="lead">心動時分為你精選通過100%雙重實名認證的優質會員，免註冊、零門檻，一鍵即可與心儀的會員聯繫，開啟屬於你們的幸福緣分。</p>
                 <div class="hero-actions">
@@ -624,9 +635,9 @@
         <section class="wrap sec">
             <div class="cta-band reveal">
                 <h2>你的幸福，或許就差這一步</h2>
-                <p>文字修改為：最好的愛情不是尋尋覓覓，而是當你準備好時，精準出現在你身旁。現在預約，享免費用戶特質分析與專屬對象推薦。</p>
+                <p>最好的愛情不是尋尋覓覓，而是當你準備好時，精準出現在你身旁。現在預約，享免費用戶特質分析與專屬對象推薦。</p>
                 <div class="cta-btns">
-                    <button class="btn btn-ghost" onclick="k2()"><i class="fa-solid fa-fire"></i><span>免費配對名額有限</span></button> 
+                    <button class="btn btn-ghost" onclick="k2()"><i class="fa-solid fa-fire"></i><span>在線咨詢資深紅娘</span></button> 
                 </div>
                 <div class="cta-urgency"><i class="fa-solid fa-fire"></i> 本月已有 3,286 位男士成功配對</div>
             </div>
