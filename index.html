@@ -120,7 +120,9 @@
         .hero h1 { font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(38px, 5.4vw, 62px); line-height: 1.18; letter-spacing: 1px; margin-bottom: 22px; }
         .grad-text { background: linear-gradient(100deg, var(--pink-light), var(--purple-light), var(--teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .hero p.lead { color: var(--text-dim); font-size: 17.5px; max-width: 520px; margin-bottom: 34px; }
-        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 34px; }
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+        .hero-note { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--yellow); font-weight: 600; margin-bottom: 24px; }
+        .hero-note i { animation: heartbeat 1.4s ease-in-out infinite; }
         .hero-trust { display: flex; gap: 22px; flex-wrap: wrap; }
         .trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-dim); }
         .trust-item i { color: var(--teal); }
@@ -232,7 +234,7 @@
         .step h3 { font-size: 18px; font-weight: 700; margin: 10px 0 8px; }
         .step p { color: var(--text-dim); font-size: 14px; }
 
-        /* ---------- 成功故事 ---------- */
+        /* ---------- 成功案例 ---------- */
         .stories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
         .story { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 30px 28px; position: relative; }
         .story .stars { color: var(--yellow); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
@@ -336,10 +338,10 @@
             </a>
             <nav class="nav-links">
                 <a href="#home">首頁</a>
-                <a href="#features">平台特色</a>
-                <a href="#members">精選女生</a>
-                <a href="#process">聯繫流程</a>
-                <a href="#stories">成功故事</a>
+                <a href="#features">創新速配</a>
+                <a href="#members">精選會員</a>
+                <a href="#process">牽手流程</a>
+                <a href="#stories">成功案例</a>
             </nav>
             <button class="btn btn-primary btn-sm nav-cta" onclick="k2()"><span>免費聯繫</span><i class="fa-solid fa-arrow-right"></i></button>
         </div>
@@ -351,11 +353,13 @@
             <div class="hero-copy">
                 <div class="hero-badge"><i class="fa-solid fa-heart"></i> 2026 全新升級 · 免註冊直接聯繫</div>
                 <h1>在對的時間，<br>遇見<span class="grad-text">對的人</span></h1>
-                <p class="lead">心動時分為你精選通過100%雙重實名認證的優質女生，免註冊、零門檻，一鍵即可與心儀的她聯繫，開啟屬於你們的幸福緣分。</p>
+                <p class="lead">心動時分為你精選通過100%雙重實名認證的優質會員，免註冊、零門檻，一鍵即可與心儀的會員聯繫，開啟屬於你們的幸福緣分。</p>
                 <div class="hero-actions">
-                    <button class="btn btn-primary" onclick="k2()"><span>免費聯繫她</span><i class="fa-solid fa-arrow-right"></i></button>
-                    <button class="btn btn-ghost" onclick="document.getElementById('members').scrollIntoView({behavior:'smooth'})"><span>瀏覽女生</span></button>
+                    <button class="btn btn-primary" onclick="k2()"><i class="fa-solid fa-heart"></i><span>免費配對</span></button>
+                    <button class="btn btn-primary" onclick="k2()"><span>立刻開啟專屬精準配對</span><i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="btn btn-ghost" onclick="document.getElementById('members').scrollIntoView({behavior:'smooth'})"><span>瀏覽精選會員</span></button>
                 </div>
+                <div class="hero-note"><i class="fa-solid fa-fire"></i> 今日剩餘1個免費深度一對一配對名額</div>
                 <div class="hero-trust">
                     <div class="trust-item"><i class="fa-solid fa-bolt"></i> 免註冊零門檻</div>
                     <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100%雙重實名認證</div>
@@ -394,14 +398,14 @@
         <!-- 數據橫幅 -->
         <section class="wrap stats">
             <div class="stats-box reveal">
-                <div class="stat"><div class="stat-num" data-count="8000" data-suffix="+">0</div><div class="stat-label">已認證女生</div></div>
+                <div class="stat"><div class="stat-num" data-count="8000" data-suffix="+">0</div><div class="stat-label">已認證會員</div></div>
                 <div class="stat"><div class="stat-num" data-count="12000" data-suffix="+">0</div><div class="stat-label">成功牽線</div></div>
                 <div class="stat"><div class="stat-num" data-count="3200" data-suffix="+">0</div><div class="stat-label"><span class="live-dot"></span>今日在線</div></div>
                 <div class="stat"><div class="stat-num" data-count="98" data-suffix="%">0</div><div class="stat-label">會員滿意度</div></div>
             </div>
         </section>
 
-        <!-- 平台特色 -->
+        <!-- 創新速配 -->
         <section class="wrap sec" id="features">
             <div class="sec-head reveal">
                 <span class="sec-tag">WHY US</span>
@@ -411,7 +415,7 @@
             </div>
             <div class="features">
                 <div class="feature reveal"><div class="fic"><i class="fa-solid fa-bolt"></i></div><h3>免註冊直接聯繫</h3><p>零門檻、零等待，看到心儀的她，一鍵即可直接聯繫，無需繁瑣手續。</p></div>
-                <div class="feature reveal"><div class="fic"><i class="fa-solid fa-user-check"></i></div><h3>100%雙重實名認證</h3><p>每一位女生皆經雙重身分核實，杜絕詐欺與虛假資料，讓你看得安心、聊得放心。</p></div>
+                <div class="feature reveal"><div class="fic"><i class="fa-solid fa-user-check"></i></div><h3>100%雙重實名認證</h3><p>每一位會員皆經雙重身分核實，杜絕詐欺與虛假資料，讓你看得安心、聊得放心。</p></div>
                 <div class="feature reveal"><div class="fic"><i class="fa-solid fa-shield-halved"></i></div><h3>隱私安全保障</h3><p>聯絡資訊全程加密保密，你的每一分隱私都受到周全保護。</p></div>
                 <div class="feature reveal"><div class="fic"><i class="fa-solid fa-headset"></i></div><h3>專人紅娘服務</h3><p>24/7 專人貼心服務，從認識到牽線，全程陪伴你走向幸福。</p></div>
             </div>
@@ -421,7 +425,7 @@
         <section class="wrap sec" id="members">
             <div class="sec-head reveal">
                 <span class="sec-tag">MEMBERS</span>
-                <h2>精選女生</h2>
+                <h2>精選會員</h2>
                 <p>每一位都通過100%雙重實名認證，等待與你相遇。</p>
                 <div class="accent-line"></div>
             </div>
@@ -439,32 +443,32 @@
             </div>
         </section>
 
-        <!-- 聯繫流程 -->
+        <!-- 牽手流程 -->
         <section class="wrap sec" id="process">
             <div class="sec-head reveal">
                 <span class="sec-tag">HOW IT WORKS</span>
-                <h2>聯繫流程</h2>
+                <h2>牽手流程</h2>
                 <p>四步到位，零門檻開啟你的幸福旅程。</p>
                 <div class="accent-line"></div>
             </div>
             <div class="process">
-                <div class="step reveal"><div class="step-num">1</div><h3>免費瀏覽</h3><p>免註冊、免下載，直接瀏覽所有女生資料。</p></div>
+                <div class="step reveal"><div class="step-num">1</div><h3>免費瀏覽</h3><p>免註冊、免下載，直接瀏覽所有會員資料。</p></div>
                 <div class="step reveal"><div class="step-num">2</div><h3>選中心儀</h3><p>找到有緣的她，點擊「心動她」。</p></div>
                 <div class="step reveal"><div class="step-num">3</div><h3>一鍵聯繫</h3><p>零門檻、免認證，立即開啟聯繫。</p></div>
                 <div class="step reveal"><div class="step-num">4</div><h3>幸福開始</h3><p>線上熱聊，緣分就此展開。</p></div>
             </div>
         </section>
 
-        <!-- 成功故事 -->
+        <!-- 成功案例 -->
         <section class="wrap sec" id="stories">
             <div class="sec-head reveal">
                 <span class="sec-tag">STORIES</span>
-                <h2>成功故事</h2>
+                <h2>成功案例</h2>
                 <p>每一次心動，都是一段美好故事的開始。</p>
                 <div class="accent-line"></div>
             </div>
             <div class="stories">
-                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「原本擔心遇到詐騙，但這裡的女生都經過雙重認證，聊起來很安心。三個月後，我遇見了現在的太太。」</blockquote><div class="who"><div class="avatar">陳</div><div><b>陳先生 · 38 歲</b><small>香港</small></div></div></div>
+                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「原本擔心遇到詐騙，但這裡的會員都經過雙重認證，聊起來很安心。三個月後，我遇見了現在的太太。」</blockquote><div class="who"><div class="avatar">陳</div><div><b>陳先生 · 38 歲</b><small>香港</small></div></div></div>
                 <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「不用註冊就能直接聯繫，真的很方便。紅娘顧問也超用心，配對得很精準。」</blockquote><div class="who"><div class="avatar">林</div><div><b>林先生 · 42 歲</b><small>九龍</small></div></div></div>
                 <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「資料透明、流程簡單，讓我能專注於認識彼此，而不是擔心詐騙。」</blockquote><div class="who"><div class="avatar">王</div><div><b>王先生 · 35 歲</b><small>新界</small></div></div></div>
             </div>
@@ -473,7 +477,7 @@
         <!-- 保障 -->
         <section class="wrap sec" id="guarantee" style="padding-bottom: 32px;">
             <div class="guarantee reveal">
-                <div class="g-item"><div class="g-ic"><i class="fa-solid fa-user-check"></i></div><div><b>100% 雙重實名認證</b><small>每位女生皆經雙重身分核實</small></div></div>
+                <div class="g-item"><div class="g-ic"><i class="fa-solid fa-user-check"></i></div><div><b>100% 雙重實名認證</b><small>每位會員皆經雙重身分核實</small></div></div>
                 <div class="g-item"><div class="g-ic"><i class="fa-solid fa-bolt"></i></div><div><b>免註冊零門檻</b><small>無需任何繁瑣手續</small></div></div>
                 <div class="g-item"><div class="g-ic"><i class="fa-solid fa-lock"></i></div><div><b>隱私全程保密</b><small>聯絡資訊加密保護</small></div></div>
                 <div class="g-item"><div class="g-ic"><i class="fa-solid fa-headset"></i></div><div><b>專人客服 24/7</b><small>隨時為你貼心服務</small></div></div>
@@ -508,10 +512,10 @@
                 <div class="footer-cols">
                     <div class="footer-col">
                         <h4>探索</h4>
-                        <a href="#features">平台特色</a>
-                        <a href="#members">精選女生</a>
-                        <a href="#process">聯繫流程</a>
-                        <a href="#stories">成功故事</a>
+                        <a href="#features">創新速配</a>
+                        <a href="#members">精選會員</a>
+                        <a href="#process">牽手流程</a>
+                        <a href="#stories">成功案例</a>
                     </div>
                     <div class="footer-col">
                         <h4>協助</h4>
