@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>心動時分 HeartbeatMomen｜2026 婚戀配對服務平台</title>
-    <meta name="description" content="心動時分（HeartbeatMomen）2026 婚戀配對服務平台，女生實名認證、免註冊直接聯繫，為你牽起幸福的緣分。">
+    <meta name="description" content="心動時分（HeartbeatMomen）2026 婚戀配對服務平台，100%雙重實名認證、免註冊直接聯繫，為你牽起幸福的緣分。">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -257,6 +257,7 @@
         .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% -20%, rgba(255,46,210,0.25), transparent 60%); }
         .cta-band h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(26px, 3.4vw, 40px); font-weight: 900; position: relative; margin-bottom: 14px; }
         .cta-band p { color: var(--text-dim); position: relative; margin-bottom: 30px; font-size: 16px; }
+        .cta-btns { position: relative; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
         .cta-urgency { position: relative; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--yellow); margin-top: 22px; font-weight: 500; }
         .cta-urgency i { animation: heartbeat 1.4s ease-in-out infinite; }
 
@@ -278,12 +279,12 @@
         .mobile-bar { display: none; }
         @media (max-width: 768px) {
             .mobile-bar {
-                display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+                display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
                 padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
                 background: linear-gradient(to top, rgba(14,2,32,0.98), rgba(14,2,32,0.78));
                 backdrop-filter: blur(14px); border-top: 1px solid rgba(255,46,210,0.3);
             }
-            .mobile-bar .btn { width: 100%; }
+            .mobile-bar .btn { flex: 1; padding: 13px 6px; font-size: 13px; white-space: nowrap; }
             body { padding-bottom: 78px; }
         }
 
@@ -350,21 +351,21 @@
             <div class="hero-copy">
                 <div class="hero-badge"><i class="fa-solid fa-heart"></i> 2026 全新升級 · 免註冊直接聯繫</div>
                 <h1>在對的時間，<br>遇見<span class="grad-text">對的人</span></h1>
-                <p class="lead">心動時分為你精選通過實名認證的優質女生，免註冊、零門檻，一鍵即可與心儀的她聯繫，開啟屬於你們的幸福緣分。</p>
+                <p class="lead">心動時分為你精選通過100%雙重實名認證的優質女生，免註冊、零門檻，一鍵即可與心儀的她聯繫，開啟屬於你們的幸福緣分。</p>
                 <div class="hero-actions">
                     <button class="btn btn-primary" onclick="k2()"><span>免費聯繫她</span><i class="fa-solid fa-arrow-right"></i></button>
                     <button class="btn btn-ghost" onclick="document.getElementById('members').scrollIntoView({behavior:'smooth'})"><span>瀏覽女生</span></button>
                 </div>
                 <div class="hero-trust">
                     <div class="trust-item"><i class="fa-solid fa-bolt"></i> 免註冊零門檻</div>
-                    <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 女生實名認證</div>
+                    <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100%雙重實名認證</div>
                     <div class="trust-item"><i class="fa-solid fa-lock"></i> 隱私全程保密</div>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="photo-card pc-1"><img src="img/1.jpg" alt="小柔"></div>
-                <div class="photo-card pc-2"><img src="img/2.jpg" alt="甜甜"></div>
-                <div class="photo-card pc-3"><img src="img/3.jpg" alt="依依"></div>
+                <div class="photo-card pc-1"><img src="img/1.jpg" alt="晴晴"></div>
+                <div class="photo-card pc-2"><img src="img/2.jpg" alt="欣欣"></div>
+                <div class="photo-card pc-3"><img src="img/3.jpg" alt="彤彤"></div>
                 <div class="float-chip">
                     <div class="ic"><i class="fa-solid fa-heart"></i></div>
                     <div><b>本月 +1,286</b><small>成功牽線 · 真實見證</small></div>
@@ -375,18 +376,18 @@
         <!-- 跑馬燈 -->
         <div class="marquee">
             <div class="marquee-track">
-                <span><i class="fa-solid fa-heart"></i>台北 · <b>陳先生</b> 剛成功聯繫「小柔」</span>
-                <span><i class="fa-solid fa-heart"></i>高雄 · <b>林先生</b> 與「甜甜」聊得火熱</span>
-                <span><i class="fa-solid fa-heart"></i>台中 · <b>王先生</b> 已牽線成功</span>
-                <span><i class="fa-solid fa-heart"></i>新北 · <b>張先生</b> 剛送出心動</span>
-                <span><i class="fa-solid fa-heart"></i>台南 · <b>李先生</b> 成功配對</span>
-                <span><i class="fa-solid fa-heart"></i>桃園 · <b>黃先生</b> 正在聯繫「依依」</span>
-                <span><i class="fa-solid fa-heart"></i>台北 · <b>陳先生</b> 剛成功聯繫「小柔」</span>
-                <span><i class="fa-solid fa-heart"></i>高雄 · <b>林先生</b> 與「甜甜」聊得火熱</span>
-                <span><i class="fa-solid fa-heart"></i>台中 · <b>王先生</b> 已牽線成功</span>
-                <span><i class="fa-solid fa-heart"></i>新北 · <b>張先生</b> 剛送出心動</span>
-                <span><i class="fa-solid fa-heart"></i>台南 · <b>李先生</b> 成功配對</span>
-                <span><i class="fa-solid fa-heart"></i>桃園 · <b>黃先生</b> 正在聯繫「依依」</span>
+                <span><i class="fa-solid fa-heart"></i>香港 · <b>陳先生</b> 剛成功聯繫「晴晴」</span>
+                <span><i class="fa-solid fa-heart"></i>九龍 · <b>林先生</b> 與「欣欣」聊得火熱</span>
+                <span><i class="fa-solid fa-heart"></i>新界 · <b>王先生</b> 已牽線成功</span>
+                <span><i class="fa-solid fa-heart"></i>旺角 · <b>張先生</b> 剛送出心動</span>
+                <span><i class="fa-solid fa-heart"></i>沙田 · <b>李先生</b> 成功配對</span>
+                <span><i class="fa-solid fa-heart"></i>銅鑼灣 · <b>黃先生</b> 正在聯繫「彤彤」</span>
+                <span><i class="fa-solid fa-heart"></i>香港 · <b>陳先生</b> 剛成功聯繫「晴晴」</span>
+                <span><i class="fa-solid fa-heart"></i>九龍 · <b>林先生</b> 與「欣欣」聊得火熱</span>
+                <span><i class="fa-solid fa-heart"></i>新界 · <b>王先生</b> 已牽線成功</span>
+                <span><i class="fa-solid fa-heart"></i>旺角 · <b>張先生</b> 剛送出心動</span>
+                <span><i class="fa-solid fa-heart"></i>沙田 · <b>李先生</b> 成功配對</span>
+                <span><i class="fa-solid fa-heart"></i>銅鑼灣 · <b>黃先生</b> 正在聯繫「彤彤」</span>
             </div>
         </div>
 
@@ -410,7 +411,7 @@
             </div>
             <div class="features">
                 <div class="feature reveal"><div class="fic"><i class="fa-solid fa-bolt"></i></div><h3>免註冊直接聯繫</h3><p>零門檻、零等待，看到心儀的她，一鍵即可直接聯繫，無需繁瑣手續。</p></div>
-                <div class="feature reveal"><div class="fic"><i class="fa-solid fa-user-check"></i></div><h3>女生實名認證</h3><p>每一位女生皆經身分核實，杜絕詐欺與虛假資料，讓你看得安心、聊得放心。</p></div>
+                <div class="feature reveal"><div class="fic"><i class="fa-solid fa-user-check"></i></div><h3>100%雙重實名認證</h3><p>每一位女生皆經雙重身分核實，杜絕詐欺與虛假資料，讓你看得安心、聊得放心。</p></div>
                 <div class="feature reveal"><div class="fic"><i class="fa-solid fa-shield-halved"></i></div><h3>隱私安全保障</h3><p>聯絡資訊全程加密保密，你的每一分隱私都受到周全保護。</p></div>
                 <div class="feature reveal"><div class="fic"><i class="fa-solid fa-headset"></i></div><h3>專人紅娘服務</h3><p>24/7 專人貼心服務，從認識到牽線，全程陪伴你走向幸福。</p></div>
             </div>
@@ -421,20 +422,20 @@
             <div class="sec-head reveal">
                 <span class="sec-tag">MEMBERS</span>
                 <h2>精選女生</h2>
-                <p>每一位都通過嚴格實名認證，等待與你相遇。</p>
+                <p>每一位都通過100%雙重實名認證，等待與你相遇。</p>
                 <div class="accent-line"></div>
             </div>
             <div class="members">
-                <article class="member reveal"><div class="member-photo"><img src="img/1.jpg" alt="小柔"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-hot"><i class="fa-solid fa-fire"></i>熱門</span></div><div class="member-info"><h3>小柔 <span>26歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>旅遊 · 烹飪 · 瑜伽</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/2.jpg" alt="甜甜"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>甜甜 <span>23歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>逛街 · 唱歌 · 甜點</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/3.jpg" alt="依依"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span></div><div class="member-info"><h3>依依 <span>27歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>電影 · 瑜伽 · 旅遊</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/4jpg.jpg" alt="琪琪"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>琪琪 <span>24歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>烘焙 · 爬山 · 拍照</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/5.jpg" alt="婷婷"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-new"><i class="fa-solid fa-sparkles"></i>新加入</span></div><div class="member-info"><h3>婷婷 <span>22歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>音樂 · 健身 · 逛街</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/6.jpg" alt="美美"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-hot"><i class="fa-solid fa-fire"></i>熱門</span></div><div class="member-info"><h3>美美 <span>25歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>烹飪 · 電影 · 旅遊</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/7.jpg" alt="花花"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span></div><div class="member-info"><h3>花花 <span>27歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>瑜伽 · 烘焙 · 唱歌</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/8.jpg" alt="妮妮"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>妮妮 <span>21歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>逛街 · 甜點 · 拍照</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/9.jpg" alt="小雪"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span></div><div class="member-info"><h3>小雪 <span>26歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>旅遊 · 健身 · 電影</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
-                <article class="member reveal"><div class="member-photo"><img src="img/10.jpg" alt="蕾蕾"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-new"><i class="fa-solid fa-sparkles"></i>新加入</span></div><div class="member-info"><h3>蕾蕾 <span>20歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>唱歌 · 爬山 · 音樂</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/1.jpg" alt="晴晴"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span><span class="member-tag tag-hot"><i class="fa-solid fa-fire"></i>熱門</span></div><div class="member-info"><h3>晴晴 <span>26歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>旅遊 · 烹飪 · 瑜伽</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/2.jpg" alt="欣欣"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>欣欣 <span>23歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>逛街 · 唱歌 · 甜點</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/3.jpg" alt="彤彤"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span></div><div class="member-info"><h3>彤彤 <span>27歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>電影 · 瑜伽 · 旅遊</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/4jpg.jpg" alt="Chloe妹"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>Chloe妹 <span>24歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>烘焙 · 爬山 · 拍照</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/5.jpg" alt="阿Yan"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span><span class="member-tag tag-new"><i class="fa-solid fa-sparkles"></i>新加入</span></div><div class="member-info"><h3>阿Yan <span>22歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>音樂 · 健身 · 逛街</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/6.jpg" alt="阿Yu"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span><span class="member-tag tag-hot"><i class="fa-solid fa-fire"></i>熱門</span></div><div class="member-info"><h3>阿Yu <span>25歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>烹飪 · 電影 · 旅遊</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/7.jpg" alt="阿Wing"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span></div><div class="member-info"><h3>阿Wing <span>27歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>瑜伽 · 烘焙 · 唱歌</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/8.jpg" alt="Ah Ching"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>Ah Ching <span>21歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>逛街 · 甜點 · 拍照</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/9.jpg" alt="麵包"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span></div><div class="member-info"><h3>麵包 <span>26歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>旅遊 · 健身 · 電影</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/10.jpg" alt="粒粒"><span class="member-verify"><i class="fa-solid fa-check"></i>雙重認證</span><span class="member-tag tag-new"><i class="fa-solid fa-sparkles"></i>新加入</span></div><div class="member-info"><h3>粒粒 <span>20歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>唱歌 · 爬山 · 音樂</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
             </div>
         </section>
 
@@ -463,16 +464,16 @@
                 <div class="accent-line"></div>
             </div>
             <div class="stories">
-                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「原本擔心遇到詐騙，但這裡的女生都通過認證，聊起來很安心。三個月後，我遇見了現在的太太。」</blockquote><div class="who"><div class="avatar">陳</div><div><b>陳先生 · 38 歲</b><small>台北</small></div></div></div>
-                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「不用註冊就能直接聯繫，真的很方便。紅娘顧問也超用心，配對得很精準。」</blockquote><div class="who"><div class="avatar">林</div><div><b>林先生 · 42 歲</b><small>高雄</small></div></div></div>
-                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「資料透明、流程簡單，讓我能專注於認識彼此，而不是擔心詐騙。」</blockquote><div class="who"><div class="avatar">王</div><div><b>王先生 · 35 歲</b><small>台中</small></div></div></div>
+                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「原本擔心遇到詐騙，但這裡的女生都經過雙重認證，聊起來很安心。三個月後，我遇見了現在的太太。」</blockquote><div class="who"><div class="avatar">陳</div><div><b>陳先生 · 38 歲</b><small>香港</small></div></div></div>
+                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「不用註冊就能直接聯繫，真的很方便。紅娘顧問也超用心，配對得很精準。」</blockquote><div class="who"><div class="avatar">林</div><div><b>林先生 · 42 歲</b><small>九龍</small></div></div></div>
+                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「資料透明、流程簡單，讓我能專注於認識彼此，而不是擔心詐騙。」</blockquote><div class="who"><div class="avatar">王</div><div><b>王先生 · 35 歲</b><small>新界</small></div></div></div>
             </div>
         </section>
 
         <!-- 保障 -->
         <section class="wrap sec" id="guarantee" style="padding-bottom: 32px;">
             <div class="guarantee reveal">
-                <div class="g-item"><div class="g-ic"><i class="fa-solid fa-user-check"></i></div><div><b>100% 女生實名認證</b><small>每位女生皆經身分核實</small></div></div>
+                <div class="g-item"><div class="g-ic"><i class="fa-solid fa-user-check"></i></div><div><b>100% 雙重實名認證</b><small>每位女生皆經雙重身分核實</small></div></div>
                 <div class="g-item"><div class="g-ic"><i class="fa-solid fa-bolt"></i></div><div><b>免註冊零門檻</b><small>無需任何繁瑣手續</small></div></div>
                 <div class="g-item"><div class="g-ic"><i class="fa-solid fa-lock"></i></div><div><b>隱私全程保密</b><small>聯絡資訊加密保護</small></div></div>
                 <div class="g-item"><div class="g-ic"><i class="fa-solid fa-headset"></i></div><div><b>專人客服 24/7</b><small>隨時為你貼心服務</small></div></div>
@@ -483,9 +484,12 @@
         <section class="wrap sec" style="padding-top: 32px;">
             <div class="cta-band reveal">
                 <h2>你的幸福，或許就差這一步</h2>
-                <p>本月限定名額，已有 3,286 位男士免費聯繫成功，立即加入把握緣分。</p>
-                <button class="btn btn-primary" onclick="k2()"><span>立即免費聯繫她</span><i class="fa-solid fa-heart"></i></button>
-                <div class="cta-urgency"><i class="fa-solid fa-fire"></i> 剩餘名額不多 · 立即把握</div>
+                <p>免費配對名額有限，立即在線咨詢資深紅娘，把握屬於你的緣分。</p>
+                <div class="cta-btns">
+                    <button class="btn btn-ghost" onclick="k2()"><i class="fa-solid fa-fire"></i><span>免費配對名額有限</span></button>
+                    <button class="btn btn-primary" onclick="k2()"><i class="fa-solid fa-headset"></i><span>在線咨詢資深紅娘</span></button>
+                </div>
+                <div class="cta-urgency"><i class="fa-solid fa-fire"></i> 本月已有 3,286 位男士成功配對</div>
             </div>
         </section>
     </main>
@@ -519,7 +523,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="fb-brand">2026 心動緣分（SoulMate）婚戀配對服務平台 · 版權所有 · 嚴格實名認證體系保障</div>
+                <div class="fb-brand">2026 心動緣分（SoulMate）婚戀配對服務平台 · 版權所有 · 100%雙重實名認證體系保障</div>
                 <div>聲明：本平台嚴厲打擊任何形式之婚戀詐欺、虛假宣傳及不法行為，會員皆須配合實名登記。</div>
             </div>
         </div>
@@ -527,7 +531,8 @@
 
     <!-- 手機底部懸浮按鈕 -->
     <div class="mobile-bar">
-        <button class="btn btn-primary" onclick="k2()"><span>立即免費聯繫她</span><i class="fa-solid fa-heart"></i></button>
+        <button class="btn btn-ghost" onclick="k2()"><i class="fa-solid fa-fire"></i><span>免費配對名額有限</span></button>
+        <button class="btn btn-primary" onclick="k2()"><i class="fa-solid fa-headset"></i><span>在線咨詢資深紅娘</span></button>
     </div>
 
     <script>
