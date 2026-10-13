@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心動時分 HeartbeatMomen｜2026 婚戀配對服務平台</title>
+    <meta name="description" content="心動時分（HeartbeatMomen）2026 婚戀配對服務平台，女生實名認證、免註冊直接聯繫，為你牽起幸福的緣分。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-light: #FF70E5;
+            --pink: #FF2ED2;
+            --pink-dark: #D800AA;
+            --purple-light: #A170FF;
+            --purple: #8A2EFF;
+            --purple-dark: #6300E0;
+            --teal: #00EEFF;
+            --yellow: #FFDD00;
+            --green: #4ade80;
+            --bg-0: #0E0220;
+            --bg-1: #1A0536;
+            --text: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.72);
+            --text-faint: rgba(255, 255, 255, 0.5);
+            --card: rgba(26, 5, 54, 0.55);
+            --card-border: rgba(255, 46, 210, 0.18);
+            --radius: 20px;
+            --maxw: 1180px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, var(--bg-0) 0%, var(--bg-1) 55%, #16032e 100%);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
+        button { font-family: inherit; cursor: pointer; }
+
+        /* ---------- 背景光暈 ---------- */
+        .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+        .orb-1 { width: 480px; height: 480px; background: rgba(255, 46, 210, 0.22); top: -120px; left: -100px; }
+        .orb-2 { width: 520px; height: 520px; background: rgba(138, 46, 255, 0.22); top: 40%; right: -160px; }
+        .orb-3 { width: 420px; height: 420px; background: rgba(0, 238, 255, 0.10); bottom: -120px; left: 20%; }
+
+        .wrap { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+        /* ---------- 導覽列 ---------- */
+        .nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(14, 2, 32, 0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 46, 210, 0.14);
+        }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .brand-mark {
+            width: 42px; height: 42px; border-radius: 13px;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            display: grid; place-items: center; font-size: 20px;
+            box-shadow: 0 0 22px rgba(255, 46, 210, 0.55);
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 16px rgba(255, 46, 210, 0.45); }
+            50% { box-shadow: 0 0 30px rgba(138, 46, 255, 0.7); }
+        }
+        .brand-name { font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 20px; letter-spacing: 2px; }
+        .brand-sub { font-size: 10px; letter-spacing: 2.5px; color: var(--text-faint); text-transform: uppercase; margin-top: -3px; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-size: 14.5px; color: var(--text-dim); transition: color .25s; }
+        .nav-links a:hover { color: var(--pink-light); }
+        .nav-cta { display: none; }
+
+        /* ---------- 按鈕 ---------- */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+            padding: 14px 30px; border-radius: 999px; font-weight: 700; font-size: 16px;
+            border: none; color: #fff; transition: transform .3s, box-shadow .3s; position: relative; overflow: hidden;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            box-shadow: 0 10px 30px rgba(255, 46, 210, 0.35);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(138, 46, 255, 0.5); }
+        .btn-primary::after {
+            content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--purple), var(--teal));
+            opacity: 0; transition: opacity .3s;
+        }
+        .btn-primary:hover::after { opacity: 1; }
+        .btn-primary span, .btn-primary i { position: relative; z-index: 1; }
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 46, 210, 0.4); color: #fff;
+        }
+        .btn-ghost:hover { border-color: var(--pink); background: rgba(255, 46, 210, 0.1); transform: translateY(-3px); }
+
+        .btn-sm { padding: 11px 22px; font-size: 14px; }
+
+        /* ---------- 頁首 ---------- */
+        .hero { padding: 72px 0 56px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+            background: rgba(255, 46, 210, 0.1); border: 1px solid rgba(255, 46, 210, 0.35);
+            font-size: 13.5px; color: var(--pink-light); margin-bottom: 24px; font-weight: 500;
+        }
+        .hero-badge i { animation: heartbeat 1.4s ease-in-out infinite; }
+        @keyframes heartbeat { 0%,100%{transform:scale(1);} 25%{transform:scale(1.18);} 40%{transform:scale(1);} 60%{transform:scale(1.14);} 75%{transform:scale(1);} }
+        .hero h1 { font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(38px, 5.4vw, 62px); line-height: 1.18; letter-spacing: 1px; margin-bottom: 22px; }
+        .grad-text { background: linear-gradient(100deg, var(--pink-light), var(--purple-light), var(--teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero p.lead { color: var(--text-dim); font-size: 17.5px; max-width: 520px; margin-bottom: 34px; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 34px; }
+        .hero-trust { display: flex; gap: 22px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-dim); }
+        .trust-item i { color: var(--teal); }
+
+        /* 右側照片拼貼 */
+        .hero-visual { position: relative; min-height: 460px; }
+        .photo-card {
+            position: absolute; border-radius: 18px; overflow: hidden;
+            border: 1px solid rgba(255, 46, 210, 0.3);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), 0 0 28px rgba(255, 46, 210, 0.22);
+            background: var(--bg-1);
+        }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+        .pc-1 { width: 54%; aspect-ratio: 3/4; left: 0; top: 6%; animation: float 5s ease-in-out infinite; }
+        .pc-2 { width: 40%; aspect-ratio: 3/4; right: 0; top: 0; animation: float 6s ease-in-out infinite 0.6s; }
+        .pc-3 { width: 36%; aspect-ratio: 3/4; right: 12%; bottom: 0; animation: float 7s ease-in-out infinite 1.2s; }
+        @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+        .float-chip {
+            position: absolute; left: 0; bottom: 14%; z-index: 3;
+            background: rgba(26, 5, 54, 0.82); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 46, 210, 0.35); border-radius: 14px; padding: 13px 18px;
+            display: flex; align-items: center; gap: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        .float-chip .ic { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pink), var(--purple)); display: grid; place-items: center; font-size: 16px; }
+        .float-chip b { font-size: 16px; display: block; }
+        .float-chip small { color: var(--text-faint); font-size: 12px; }
+
+        /* ---------- 跑馬燈（社交證明） ---------- */
+        .marquee { overflow: hidden; border-top: 1px solid rgba(255,46,210,0.14); border-bottom: 1px solid rgba(255,46,210,0.14); background: rgba(26,5,54,0.42); padding: 12px 0; }
+        .marquee-track { display: flex; gap: 44px; width: max-content; animation: marquee 32s linear infinite; }
+        .marquee-track span { white-space: nowrap; color: var(--text-dim); font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+        .marquee-track i { color: var(--pink-light); }
+        .marquee-track b { color: var(--pink-light); }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* ---------- 數據橫幅 ---------- */
+        .stats { padding: 40px 0 56px; }
+        .stats-box {
+            background: var(--card); backdrop-filter: blur(12px); border: 1px solid var(--card-border);
+            border-radius: var(--radius); display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden;
+        }
+        .stat { text-align: center; padding: 34px 16px; border-right: 1px solid rgba(255,255,255,0.07); }
+        .stat:last-child { border-right: none; }
+        .stat-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; background: linear-gradient(90deg, var(--pink-light), var(--purple-light)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .stat-label { color: var(--text-faint); font-size: 14px; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: blink 1.4s infinite; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+
+        /* ---------- 標題 ---------- */
+        .sec { padding: 64px 0; }
+        .sec-head { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+        .sec-tag { display: inline-block; font-size: 13px; letter-spacing: 3px; color: var(--teal); font-weight: 700; margin-bottom: 12px; text-transform: uppercase; }
+        .sec-head h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(28px, 3.4vw, 40px); font-weight: 900; letter-spacing: 1px; margin-bottom: 14px; }
+        .sec-head p { color: var(--text-dim); font-size: 16px; }
+        .accent-line { width: 64px; height: 4px; margin: 18px auto 0; border-radius: 4px; background: linear-gradient(90deg, var(--pink), var(--purple)); }
+
+        /* ---------- 特色 ---------- */
+        .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+        .feature {
+            background: var(--card); backdrop-filter: blur(10px); border: 1px solid var(--card-border);
+            border-radius: var(--radius); padding: 32px 26px; transition: transform .35s, border-color .35s, box-shadow .35s;
+            position: relative; overflow: hidden;
+        }
+        .feature:hover { transform: translateY(-8px); border-color: rgba(255, 46, 210, 0.5); box-shadow: 0 20px 45px rgba(138, 46, 255, 0.28); }
+        .feature .fic { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; font-size: 24px; margin-bottom: 20px; background: linear-gradient(135deg, rgba(255,46,210,0.18), rgba(138,46,255,0.18)); color: var(--pink-light); }
+        .feature:nth-child(2) .fic { color: var(--purple-light); }
+        .feature:nth-child(3) .fic { color: var(--teal); }
+        .feature:nth-child(4) .fic { color: var(--yellow); }
+        .feature h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+        .feature p { color: var(--text-dim); font-size: 14.5px; }
+
+        /* ---------- 精選會員 ---------- */
+        .members { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+        .member { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); overflow: hidden; transition: transform .35s, box-shadow .35s; }
+        .member:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(138, 46, 255, 0.3); }
+        .member-photo { position: relative; aspect-ratio: 3/4; overflow: hidden; }
+        .member-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+        .member:hover .member-photo img { transform: scale(1.08); }
+        .member-verify {
+            position: absolute; top: 10px; left: 10px; z-index: 2;
+            font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 999px;
+            background: rgba(14,2,32,0.7); backdrop-filter: blur(6px); color: var(--teal); border: 1px solid rgba(0,238,255,0.4);
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+        .member-tag { position: absolute; top: 10px; right: 10px; z-index: 2; font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 999px; display: inline-flex; align-items: center; gap: 5px; }
+        .tag-hot { background: linear-gradient(90deg, rgba(255,46,210,0.95), rgba(138,46,255,0.95)); color: #fff; }
+        .tag-online { background: rgba(14,2,32,0.75); backdrop-filter: blur(6px); color: var(--green); border: 1px solid rgba(74,222,128,0.5); }
+        .tag-new { background: rgba(14,2,32,0.75); backdrop-filter: blur(6px); color: var(--teal); border: 1px solid rgba(0,238,255,0.5); }
+        .tag-online .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 1.4s infinite; }
+        .member-info { padding: 14px 16px 16px; }
+        .member-info h3 { font-size: 16.5px; font-weight: 700; }
+        .member-info h3 span { font-size: 13px; color: var(--text-faint); font-weight: 400; margin-left: 5px; }
+        .member-hobby { color: var(--text-faint); font-size: 13px; margin: 5px 0 12px; line-height: 1.5; }
+        .member-hobby i { color: var(--pink-light); margin-right: 5px; }
+        .member-btn {
+            width: 100%; padding: 9px; border-radius: 999px; font-size: 13.5px; font-weight: 700; color: #fff;
+            background: linear-gradient(90deg, var(--pink), var(--purple)); border: none; transition: transform .25s, box-shadow .25s;
+        }
+        .member-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 46, 210, 0.4); }
+
+        /* ---------- 流程 ---------- */
+        .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: step; }
+        .step { position: relative; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 36px 26px 30px; }
+        .step-num {
+            position: absolute; top: -20px; left: 26px; width: 42px; height: 42px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--purple)); display: grid; place-items: center;
+            font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 18px; box-shadow: 0 0 20px rgba(255,46,210,0.5);
+        }
+        .step h3 { font-size: 18px; font-weight: 700; margin: 10px 0 8px; }
+        .step p { color: var(--text-dim); font-size: 14px; }
+
+        /* ---------- 成功故事 ---------- */
+        .stories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .story { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 30px 28px; position: relative; }
+        .story .stars { color: var(--yellow); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
+        .story blockquote { color: var(--text-dim); font-size: 15px; margin-bottom: 22px; }
+        .story .who { display: flex; align-items: center; gap: 12px; }
+        .story .avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--teal)); display: grid; place-items: center; font-weight: 700; }
+        .story .who b { display: block; font-size: 15px; }
+        .story .who small { color: var(--text-faint); font-size: 12.5px; }
+
+        /* ---------- 保障 ---------- */
+        .guarantee { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+        .g-item { display: flex; align-items: center; gap: 14px; background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px 22px; }
+        .g-item .g-ic { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-size: 20px; flex-shrink: 0; background: linear-gradient(135deg, rgba(255,46,210,0.18), rgba(138,46,255,0.18)); color: var(--pink-light); }
+        .g-item:nth-child(2) .g-ic { color: var(--purple-light); }
+        .g-item:nth-child(3) .g-ic { color: var(--teal); }
+        .g-item:nth-child(4) .g-ic { color: var(--yellow); }
+        .g-item b { display: block; font-size: 15px; }
+        .g-item small { color: var(--text-faint); font-size: 12.5px; }
+
+        /* ---------- 大行動呼籲 ---------- */
+        .cta-band { position: relative; border-radius: 26px; overflow: hidden; padding: 64px 40px; text-align: center; background: linear-gradient(120deg, rgba(255,46,210,0.16), rgba(138,46,255,0.16)); border: 1px solid rgba(255,46,210,0.3); }
+        .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% -20%, rgba(255,46,210,0.25), transparent 60%); }
+        .cta-band h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(26px, 3.4vw, 40px); font-weight: 900; position: relative; margin-bottom: 14px; }
+        .cta-band p { color: var(--text-dim); position: relative; margin-bottom: 30px; font-size: 16px; }
+        .cta-urgency { position: relative; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--yellow); margin-top: 22px; font-weight: 500; }
+        .cta-urgency i { animation: heartbeat 1.4s ease-in-out infinite; }
+
+        /* ---------- 頁尾 ---------- */
+        footer { margin-top: 40px; border-top: 1px solid rgba(255, 46, 210, 0.14); background: rgba(10, 1, 24, 0.6); }
+        .footer-inner { padding: 56px 24px 44px; }
+        .footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 36px; }
+        .footer-brand { max-width: 360px; }
+        .footer-brand .brand { margin-bottom: 14px; }
+        .footer-brand p { color: var(--text-faint); font-size: 14px; }
+        .footer-cols { display: flex; gap: 60px; }
+        .footer-col h4 { font-size: 15px; margin-bottom: 16px; color: #fff; }
+        .footer-col a { display: block; color: var(--text-faint); font-size: 14px; margin-bottom: 10px; transition: color .25s; }
+        .footer-col a:hover { color: var(--pink-light); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; text-align: center; color: var(--text-faint); font-size: 13px; line-height: 2; }
+        .footer-bottom .fb-brand { color: #fff; font-weight: 700; font-family: 'Noto Serif TC', serif; letter-spacing: 1px; }
+
+        /* ---------- 手機底部懸浮按鈕 ---------- */
+        .mobile-bar { display: none; }
+        @media (max-width: 768px) {
+            .mobile-bar {
+                display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+                padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+                background: linear-gradient(to top, rgba(14,2,32,0.98), rgba(14,2,32,0.78));
+                backdrop-filter: blur(14px); border-top: 1px solid rgba(255,46,210,0.3);
+            }
+            .mobile-bar .btn { width: 100%; }
+            body { padding-bottom: 78px; }
+        }
+
+        /* ---------- 滾動進場 ---------- */
+        .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* ---------- RWD ---------- */
+        @media (max-width: 1024px) {
+            .features { grid-template-columns: repeat(2, 1fr); }
+            .members { grid-template-columns: repeat(3, 1fr); }
+            .process { grid-template-columns: repeat(2, 1fr); gap: 34px 22px; }
+            .guarantee { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 48px; }
+            .hero-visual { min-height: 420px; max-width: 480px; }
+            .stats-box { grid-template-columns: repeat(2, 1fr); }
+            .stat:nth-child(2) { border-right: none; }
+            .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+            .stories { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-cta { display: inline-flex; }
+            .members { grid-template-columns: repeat(2, 1fr); }
+            .features { grid-template-columns: 1fr; }
+            .process { grid-template-columns: 1fr; }
+            .guarantee { grid-template-columns: 1fr; }
+            .sec { padding: 48px 0; }
+            .footer-cols { gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <!-- 導覽列 -->
+    <header class="nav">
+        <div class="wrap nav-inner">
+            <a class="brand" href="#home">
+                <div class="brand-mark"><i class="fa-solid fa-heart"></i></div>
+                <div>
+                    <div class="brand-name">心動時分</div>
+                    <div class="brand-sub">HeartbeatMomen</div>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">首頁</a>
+                <a href="#features">平台特色</a>
+                <a href="#members">精選女生</a>
+                <a href="#process">聯繫流程</a>
+                <a href="#stories">成功故事</a>
+            </nav>
+            <button class="btn btn-primary btn-sm nav-cta" onclick="k2()"><span>免費聯繫</span><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </header>
+
+    <main id="home">
+        <!-- 頁首 -->
+        <section class="wrap hero">
+            <div class="hero-copy">
+                <div class="hero-badge"><i class="fa-solid fa-heart"></i> 2026 全新升級 · 免註冊直接聯繫</div>
+                <h1>在對的時間，<br>遇見<span class="grad-text">對的人</span></h1>
+                <p class="lead">心動時分為你精選通過實名認證的優質女生，免註冊、零門檻，一鍵即可與心儀的她聯繫，開啟屬於你們的幸福緣分。</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="k2()"><span>免費聯繫她</span><i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="btn btn-ghost" onclick="document.getElementById('members').scrollIntoView({behavior:'smooth'})"><span>瀏覽女生</span></button>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item"><i class="fa-solid fa-bolt"></i> 免註冊零門檻</div>
+                    <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 女生實名認證</div>
+                    <div class="trust-item"><i class="fa-solid fa-lock"></i> 隱私全程保密</div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="photo-card pc-1"><img src="img/1.jpg" alt="小柔"></div>
+                <div class="photo-card pc-2"><img src="img/2.jpg" alt="甜甜"></div>
+                <div class="photo-card pc-3"><img src="img/3.jpg" alt="依依"></div>
+                <div class="float-chip">
+                    <div class="ic"><i class="fa-solid fa-heart"></i></div>
+                    <div><b>本月 +1,286</b><small>成功牽線 · 真實見證</small></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 跑馬燈 -->
+        <div class="marquee">
+            <div class="marquee-track">
+                <span><i class="fa-solid fa-heart"></i>台北 · <b>陳先生</b> 剛成功聯繫「小柔」</span>
+                <span><i class="fa-solid fa-heart"></i>高雄 · <b>林先生</b> 與「甜甜」聊得火熱</span>
+                <span><i class="fa-solid fa-heart"></i>台中 · <b>王先生</b> 已牽線成功</span>
+                <span><i class="fa-solid fa-heart"></i>新北 · <b>張先生</b> 剛送出心動</span>
+                <span><i class="fa-solid fa-heart"></i>台南 · <b>李先生</b> 成功配對</span>
+                <span><i class="fa-solid fa-heart"></i>桃園 · <b>黃先生</b> 正在聯繫「依依」</span>
+                <span><i class="fa-solid fa-heart"></i>台北 · <b>陳先生</b> 剛成功聯繫「小柔」</span>
+                <span><i class="fa-solid fa-heart"></i>高雄 · <b>林先生</b> 與「甜甜」聊得火熱</span>
+                <span><i class="fa-solid fa-heart"></i>台中 · <b>王先生</b> 已牽線成功</span>
+                <span><i class="fa-solid fa-heart"></i>新北 · <b>張先生</b> 剛送出心動</span>
+                <span><i class="fa-solid fa-heart"></i>台南 · <b>李先生</b> 成功配對</span>
+                <span><i class="fa-solid fa-heart"></i>桃園 · <b>黃先生</b> 正在聯繫「依依」</span>
+            </div>
+        </div>
+
+        <!-- 數據橫幅 -->
+        <section class="wrap stats">
+            <div class="stats-box reveal">
+                <div class="stat"><div class="stat-num" data-count="8000" data-suffix="+">0</div><div class="stat-label">已認證女生</div></div>
+                <div class="stat"><div class="stat-num" data-count="12000" data-suffix="+">0</div><div class="stat-label">成功牽線</div></div>
+                <div class="stat"><div class="stat-num" data-count="3200" data-suffix="+">0</div><div class="stat-label"><span class="live-dot"></span>今日在線</div></div>
+                <div class="stat"><div class="stat-num" data-count="98" data-suffix="%">0</div><div class="stat-label">會員滿意度</div></div>
+            </div>
+        </section>
+
+        <!-- 平台特色 -->
+        <section class="wrap sec" id="features">
+            <div class="sec-head reveal">
+                <span class="sec-tag">WHY US</span>
+                <h2>為什麼選擇心動時分</h2>
+                <p>以真誠為本、以信任為橋，讓每一次相遇都安心而美好。</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="features">
+                <div class="feature reveal"><div class="fic"><i class="fa-solid fa-bolt"></i></div><h3>免註冊直接聯繫</h3><p>零門檻、零等待，看到心儀的她，一鍵即可直接聯繫，無需繁瑣手續。</p></div>
+                <div class="feature reveal"><div class="fic"><i class="fa-solid fa-user-check"></i></div><h3>女生實名認證</h3><p>每一位女生皆經身分核實，杜絕詐欺與虛假資料，讓你看得安心、聊得放心。</p></div>
+                <div class="feature reveal"><div class="fic"><i class="fa-solid fa-shield-halved"></i></div><h3>隱私安全保障</h3><p>聯絡資訊全程加密保密，你的每一分隱私都受到周全保護。</p></div>
+                <div class="feature reveal"><div class="fic"><i class="fa-solid fa-headset"></i></div><h3>專人紅娘服務</h3><p>24/7 專人貼心服務，從認識到牽線，全程陪伴你走向幸福。</p></div>
+            </div>
+        </section>
+
+        <!-- 精選會員 -->
+        <section class="wrap sec" id="members">
+            <div class="sec-head reveal">
+                <span class="sec-tag">MEMBERS</span>
+                <h2>精選女生</h2>
+                <p>每一位都通過嚴格實名認證，等待與你相遇。</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="members">
+                <article class="member reveal"><div class="member-photo"><img src="img/1.jpg" alt="小柔"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-hot"><i class="fa-solid fa-fire"></i>熱門</span></div><div class="member-info"><h3>小柔 <span>26歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>旅遊 · 烹飪 · 瑜伽</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/2.jpg" alt="甜甜"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>甜甜 <span>23歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>逛街 · 唱歌 · 甜點</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/3.jpg" alt="依依"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span></div><div class="member-info"><h3>依依 <span>27歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>電影 · 瑜伽 · 旅遊</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/4jpg.jpg" alt="琪琪"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>琪琪 <span>24歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>烘焙 · 爬山 · 拍照</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/5.jpg" alt="婷婷"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-new"><i class="fa-solid fa-sparkles"></i>新加入</span></div><div class="member-info"><h3>婷婷 <span>22歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>音樂 · 健身 · 逛街</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/6.jpg" alt="美美"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-hot"><i class="fa-solid fa-fire"></i>熱門</span></div><div class="member-info"><h3>美美 <span>25歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>烹飪 · 電影 · 旅遊</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/7.jpg" alt="花花"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span></div><div class="member-info"><h3>花花 <span>27歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>瑜伽 · 烘焙 · 唱歌</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/8.jpg" alt="妮妮"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-online"><span class="dot"></span>在線</span></div><div class="member-info"><h3>妮妮 <span>21歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>逛街 · 甜點 · 拍照</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/9.jpg" alt="小雪"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span></div><div class="member-info"><h3>小雪 <span>26歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>旅遊 · 健身 · 電影</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+                <article class="member reveal"><div class="member-photo"><img src="img/10.jpg" alt="蕾蕾"><span class="member-verify"><i class="fa-solid fa-check"></i>已認證</span><span class="member-tag tag-new"><i class="fa-solid fa-sparkles"></i>新加入</span></div><div class="member-info"><h3>蕾蕾 <span>20歲</span></h3><div class="member-hobby"><i class="fa-solid fa-heart"></i>唱歌 · 爬山 · 音樂</div><button class="member-btn" onclick="k2()">心動她</button></div></article>
+            </div>
+        </section>
+
+        <!-- 聯繫流程 -->
+        <section class="wrap sec" id="process">
+            <div class="sec-head reveal">
+                <span class="sec-tag">HOW IT WORKS</span>
+                <h2>聯繫流程</h2>
+                <p>四步到位，零門檻開啟你的幸福旅程。</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="process">
+                <div class="step reveal"><div class="step-num">1</div><h3>免費瀏覽</h3><p>免註冊、免下載，直接瀏覽所有女生資料。</p></div>
+                <div class="step reveal"><div class="step-num">2</div><h3>選中心儀</h3><p>找到有緣的她，點擊「心動她」。</p></div>
+                <div class="step reveal"><div class="step-num">3</div><h3>一鍵聯繫</h3><p>零門檻、免認證，立即開啟聯繫。</p></div>
+                <div class="step reveal"><div class="step-num">4</div><h3>幸福開始</h3><p>線上熱聊，緣分就此展開。</p></div>
+            </div>
+        </section>
+
+        <!-- 成功故事 -->
+        <section class="wrap sec" id="stories">
+            <div class="sec-head reveal">
+                <span class="sec-tag">STORIES</span>
+                <h2>成功故事</h2>
+                <p>每一次心動，都是一段美好故事的開始。</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="stories">
+                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「原本擔心遇到詐騙，但這裡的女生都通過認證，聊起來很安心。三個月後，我遇見了現在的太太。」</blockquote><div class="who"><div class="avatar">陳</div><div><b>陳先生 · 38 歲</b><small>台北</small></div></div></div>
+                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「不用註冊就能直接聯繫，真的很方便。紅娘顧問也超用心，配對得很精準。」</blockquote><div class="who"><div class="avatar">林</div><div><b>林先生 · 42 歲</b><small>高雄</small></div></div></div>
+                <div class="story reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>「資料透明、流程簡單，讓我能專注於認識彼此，而不是擔心詐騙。」</blockquote><div class="who"><div class="avatar">王</div><div><b>王先生 · 35 歲</b><small>台中</small></div></div></div>
+            </div>
+        </section>
+
+        <!-- 保障 -->
+        <section class="wrap sec" id="guarantee" style="padding-bottom: 32px;">
+            <div class="guarantee reveal">
+                <div class="g-item"><div class="g-ic"><i class="fa-solid fa-user-check"></i></div><div><b>100% 女生實名認證</b><small>每位女生皆經身分核實</small></div></div>
+                <div class="g-item"><div class="g-ic"><i class="fa-solid fa-bolt"></i></div><div><b>免註冊零門檻</b><small>無需任何繁瑣手續</small></div></div>
+                <div class="g-item"><div class="g-ic"><i class="fa-solid fa-lock"></i></div><div><b>隱私全程保密</b><small>聯絡資訊加密保護</small></div></div>
+                <div class="g-item"><div class="g-ic"><i class="fa-solid fa-headset"></i></div><div><b>專人客服 24/7</b><small>隨時為你貼心服務</small></div></div>
+            </div>
+        </section>
+
+        <!-- 大行動呼籲 -->
+        <section class="wrap sec" style="padding-top: 32px;">
+            <div class="cta-band reveal">
+                <h2>你的幸福，或許就差這一步</h2>
+                <p>本月限定名額，已有 3,286 位男士免費聯繫成功，立即加入把握緣分。</p>
+                <button class="btn btn-primary" onclick="k2()"><span>立即免費聯繫她</span><i class="fa-solid fa-heart"></i></button>
+                <div class="cta-urgency"><i class="fa-solid fa-fire"></i> 剩餘名額不多 · 立即把握</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="wrap footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <div class="brand-mark"><i class="fa-solid fa-heart"></i></div>
+                        <div><div class="brand-name">心動時分</div><div class="brand-sub">HeartbeatMomen</div></div>
+                    </div>
+                    <p>以真誠為本、以信任為橋，為每一位尋愛之人牽起幸福的緣分。</p>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>探索</h4>
+                        <a href="#features">平台特色</a>
+                        <a href="#members">精選女生</a>
+                        <a href="#process">聯繫流程</a>
+                        <a href="#stories">成功故事</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>協助</h4>
+                        <a href="#" onclick="k2(); return false;">聯絡我們</a>
+                        <a href="#" onclick="k2(); return false;">會員服務</a>
+                        <a href="#" onclick="k2(); return false;">隱私政策</a>
+                        <a href="#" onclick="k2(); return false;">服務條款</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="fb-brand">2026 心動緣分（SoulMate）婚戀配對服務平台 · 版權所有 · 嚴格實名認證體系保障</div>
+                <div>聲明：本平台嚴厲打擊任何形式之婚戀詐欺、虛假宣傳及不法行為，會員皆須配合實名登記。</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 手機底部懸浮按鈕 -->
+    <div class="mobile-bar">
+        <button class="btn btn-primary" onclick="k2()"><span>立即免費聯繫她</span><i class="fa-solid fa-heart"></i></button>
+    </div>
+
+    <script>
+        // K2 跳轉方法：所有行動呼籲按鈕統一調用
+        function k2() {
+            window.location.href = "https://www.qq.com";
+        }
+
+        // 數據數字滾動
+        function animateCounters() {
+            document.querySelectorAll('.stat-num').forEach(function (el) {
+                var target = parseInt(el.dataset.count, 10);
+                var suffix = el.dataset.suffix || '';
+                var dur = 1600;
+                var start = null;
+                function tick(ts) {
+                    if (!start) start = ts;
+                    var p = Math.min((ts - start) / dur, 1);
+                    p = 1 - Math.pow(1 - p, 3);
+                    var val = Math.floor(target * p);
+                    el.textContent = val.toLocaleString('en-US') + suffix;
+                    if (p < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            });
+        }
+
+        // 滾動進場 + 數字觸發
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+
+        var statsBox = document.querySelector('.stats-box');
+        var statsObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        statsObserver.observe(statsBox);
+    </script>
+</body>
+</html>
