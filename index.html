@@ -693,10 +693,21 @@
     <script>
         // K2 跳轉方法：所有行動呼籲按鈕統一調用
         function k2() {
-          ssq.push('chatOpen', function(result) {
-  console.log('chatOpen 状态：', result.status);
-});
+            if (typeof ssq !== 'undefined' && typeof ssq.push === 'function') {
+                ssq.push('chatOpen', function (result) {
+                    console.log('chatOpen 状态：', result.status);
+                });
+            } else {
+                console.warn('ssq 尚未載入，無法開啟聊天');
+            }
         }
+
+        // 頁面載入後等待 2 秒，自動調用 k2
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                k2();
+            }, 2000);
+        });
 
         // 數據數字滾動
         function animateCounters() {
@@ -744,5 +755,6 @@
             animateCounters();
         }
     </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"afb790326ff54fd688fba83e8557e42d","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
